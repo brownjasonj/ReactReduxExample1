@@ -3,6 +3,7 @@ import * as ReactRedux from 'react-redux';
 import * as Redux from 'redux';
 
 import selectBook from '../actions/index';
+import Book from '../types/book.type';
 
 class BookList extends React.Component<any, any> {
     constructor(props: any) {
@@ -10,7 +11,7 @@ class BookList extends React.Component<any, any> {
     }
 
     private renderList()  {
-        return this.props.books.map((book: any) => {
+        return this.props.bookList.map((book: Book) => {
             return (
                 <li key={book.title} 
                     onClick={() => this.props.selectBook(book)}
@@ -43,7 +44,7 @@ function mapStateToProps(state: any) {
     // Whatever is returned will show up as props 
     // inside of BookList
     return {
-        books: state.books
+        bookList: state.bookList
     };
 }
 
